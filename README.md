@@ -14,8 +14,7 @@
 
 ### Использование
 
-    from boxberry import BoxberryAPI
-    
-    
+    from boxberry.client import BoxberryAPI
+
     boxberry_api = BoxberryAPI(token='test_token', endpoint='https://test.boxberry.de/json.php')
     boxberry_api.points_for_parcels()
