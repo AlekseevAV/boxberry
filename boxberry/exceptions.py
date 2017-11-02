@@ -1,0 +1,2 @@
+class BoxberryAPIError(Exception):
+    pass
