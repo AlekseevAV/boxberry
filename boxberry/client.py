@@ -2,11 +2,15 @@
 from __future__ import unicode_literals
 
 import json
+import logging
 
 import requests
 
 from .utils import decimal_default
 from .exceptions import BoxberryAPIError
+
+
+logger = logging.getLogger(__name__)
 
 
 class BoxberryAPI(object):
@@ -40,7 +44,16 @@ class BoxberryAPI(object):
         request_method = getattr(requests, request_method)
 
         try:
+            logger.debug('REQUEST:\n\turl: {url}\n\tparams: {params}\n\tdata: {data}'.format(
+                url=self._endpoint,
+                params=params,
+                data=data
+            ))
             response = request_method(self._endpoint, params=params, data=data, timeout=self.request_timeout)
+            logger.debug('RESPONSE:\n\tstatus: {status}\n\ttext: {text}'.format(
+                status=response.status_code,
+                text=response.text
+            ))
         except requests.RequestException as e:
             raise BoxberryAPIError('Http error: %s', e)
 
