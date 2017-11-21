@@ -3,3 +3,4 @@
 /dist/
 /boxberry.egg-info/
 __pycache__/
+/build/
