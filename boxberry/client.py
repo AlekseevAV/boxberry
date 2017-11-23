@@ -360,7 +360,7 @@ class BoxberryAPI(object):
         :param tracking_numbers: коды отслеживания заказов
         :type tracking_numbers: list
         """
-        return self._request('ParselSend', params={'ImIds': tracking_numbers})
+        return self._request('ParselSend', params={'ImIds': ','.join(tracking_numbers)})
 
     def parsel_send_story(self, from_date=None, to_date=None):
         """
