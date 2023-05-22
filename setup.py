@@ -27,6 +27,6 @@ setup(
     license='MIT',
     keywords=['boxberry'],
     install_requires=[
-        'requests==2.18.4'
+        'requests==2.31.0'
     ],
 )
